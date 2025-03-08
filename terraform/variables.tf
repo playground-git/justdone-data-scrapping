@@ -1,11 +1,11 @@
 variable "credentials" {
-  description = "My Credentials"
-  default     = "<Path to your Service Account json file>"
+  description = "Credentials"
+  default     = "~/.config/gcloud/application_default_credentials.json"
 }
 
 variable "project" {
   description = "Project"
-  default     = "<Your Project ID>"
+  default     = "de-tasks-453115"
 }
 
 variable "region" {
@@ -19,8 +19,8 @@ variable "location" {
 }
 
 variable "gcs_bucket_name" {
-  description = "My Storage Bucket Name"
-  default     = "<Your Project Bucket ID>"
+  description = "Storage Bucket Name"
+  default     = "de-task-1-bucket"
 }
 
 variable "gcs_storage_class" {

@@ -22,8 +22,3 @@ variable "gcs_bucket_name" {
   description = "My Storage Bucket Name"
   default     = "<Your Project Bucket ID>"
 }
-
-variable "gcs_storage_class" {
-  description = "Bucket Storage Class"
-  default     = "STANDARD"
-}

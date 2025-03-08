@@ -13,7 +13,6 @@ provider "google" {
   region      = var.region
 }
 
-
 resource "google_storage_bucket" "de-task-1-bucket" {
   name          = var.gcs_bucket_name
   location      = var.location

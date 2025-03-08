@@ -6,7 +6,9 @@ from typing import Optional
 
 import aiohttp
 
-from .base import BaseSource, PaperMetadata
+from models.paper import PaperMetadata
+
+from .base import BaseSource
 
 logger = logging.getLogger(__name__)
 
@@ -161,7 +163,10 @@ class ArxivSource(BaseSource):
                     if id_elem is None or "http://arxiv.org/api" in id_elem.text:
                         continue
 
-                    paper_id = id_elem.text.split("/")[-1]
+                    full_id = id_elem.text.split("/")[-1]
+
+                    # Remove version number
+                    paper_id = full_id.split("v")[0] if "v" in full_id else full_id
 
                     title_elem = entry.find("atom:title", NAMESPACES)
                     title = (

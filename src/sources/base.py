@@ -5,27 +5,12 @@ from abc import ABC, abstractmethod
 from datetime import date
 from typing import Optional
 
-from pydantic import BaseModel
+from models.paper import PaperMetadata
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
-
-
-class PaperMetadata(BaseModel):
-    """Data model for paper metadata"""
-
-    id: str
-    authors: list[str]
-    title: str
-    abstract: str
-    categories: list[str]
-    submission_date: date
-    update_date: date
-
-    class Config:
-        json_encoders = {date: lambda d: d.isoformat()}
 
 
 class BaseSource(ABC):

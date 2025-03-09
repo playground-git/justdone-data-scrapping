@@ -115,14 +115,14 @@ class PostgresStorage:
             "download": """
                 select id
                 from papers 
-                where pdf_gcs_path is null 
+                where pdf_object_path is null 
                 order by submission_date desc
                 limit %s
             """,
             "extraction": """
-                select id, pdf_gcs_path 
+                select id, pdf_object_path 
                 from papers 
-                where pdf_gcs_path is not null 
+                where pdf_object_path is not null 
                 and extracted_text is null 
                 limit %s
             """,
@@ -159,7 +159,7 @@ class PostgresStorage:
             "download": {
                 "success": """
                     update papers 
-                    set pdf_gcs_path = %s, content_downloaded_at = now()
+                    set pdf_object_path = %s, content_downloaded_at = now()
                     where id = %s
                 """,
                 "error": """

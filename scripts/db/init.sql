@@ -8,7 +8,7 @@ create table if not exists papers (
     update_date date not null,
     metadata_fetched_at timestamp with time zone default now(),
     
-    pdf_gcs_path text,
+    pdf_object_path text,
     content_downloaded_at timestamp with time zone,
     download_error text,
     

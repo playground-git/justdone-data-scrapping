@@ -57,6 +57,7 @@ For production system, I would add:
 - Implement data quality checks
 - Add unit and integration tests
 - There are different versions of paper; think about how to handle it.
+- Bulk access to arXiv dataset. The full set of PDFs is available for free in the GCS bucket gs://arxiv-dataset or through Google API.
 
 ## Data Flow
 
